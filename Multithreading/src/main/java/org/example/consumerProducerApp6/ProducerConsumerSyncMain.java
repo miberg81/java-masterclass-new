@@ -4,8 +4,9 @@ import java.util.Random;
 
 /*
 This code solves the dead-locks by adding wait-notify.
+It uses intrinsic (internal) monitor lock with automatic unlock
  */
-public class ProducerConsumerDeadLockSolvedMain {
+public class ProducerConsumerSyncMain {
 
     public static void main(String[] args) {
 
@@ -31,7 +32,7 @@ class MessageRepository {
     // When the message is true - the consumer can read it.
     private boolean hasMessage = false;
 
-    public synchronized void write(String message) {
+    public  synchronized void write(String message) {
         while (hasMessage) {
             // do nothing while already exists message that was not consumed yet
             // exit the loop means message was read(consumed)
@@ -46,6 +47,7 @@ class MessageRepository {
                 throw new RuntimeException(e);
             }
         }
+        // write the message
         hasMessage = true;
         notifyAll(); // wakes up all threads that are waiting on this objects monitor
         // here we write new message
@@ -66,6 +68,7 @@ class MessageRepository {
                 throw new RuntimeException(e);
             }
         }
+        // read the message
         hasMessage = false; // set to "false" to allow producer write next message
         notifyAll();
         return message;
