@@ -3,9 +3,9 @@ package michael.comparable;
 import java.util.Comparator;
 import java.util.Random;
 
-class Student implements Comparable<Student>{
+class Student implements Comparable<Student> {
 
-    private static int LAST_ID=1000;
+    private static int LAST_ID = 1000;
     private static Random random = new Random();
 
     protected String name;

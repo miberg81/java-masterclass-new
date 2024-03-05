@@ -12,6 +12,7 @@
         <module>ArrayListLinkedList</module>
         <module>Multithreading</module>
         <module>Generics</module>
+        <module>Abstraction</module>
     </modules>
 
     <properties>
