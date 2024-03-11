@@ -1,4 +1,4 @@
-package org.example.executerService8;
+package org.example.executerService8.common;
 
 public enum ThreadColor {
 

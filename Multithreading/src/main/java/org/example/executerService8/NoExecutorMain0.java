@@ -1,14 +1,16 @@
 package org.example.executerService8;
 
+import org.example.executerService8.common.ThreadColor;
+
 /**
  * Set up where main only single color-thread can run (with the orthers waiting)
  * But the main thread can still do something in parallel
  */
-public class NoExecutorMain {
+public class NoExecutorMain0 {
     public static void main(String[] args) {
-        Thread blue = new Thread(NoExecutorMain::countDown, ThreadColor.ANSI_BLUE.name());
-        Thread yellow = new Thread(NoExecutorMain::countDown, ThreadColor.ANSI_YELLOW.name());
-        Thread red = new Thread(NoExecutorMain::countDown, ThreadColor.ANSI_RED.name());
+        Thread blue = new Thread(NoExecutorMain0::countDown, ThreadColor.ANSI_BLUE.name());
+        Thread yellow = new Thread(NoExecutorMain0::countDown, ThreadColor.ANSI_YELLOW.name());
+        Thread red = new Thread(NoExecutorMain0::countDown, ThreadColor.ANSI_RED.name());
 
         // this order of start is not guaranteed
         blue.start();

@@ -13,6 +13,7 @@
         <module>Multithreading</module>
         <module>Generics</module>
         <module>Abstraction</module>
+        <module>Networking</module>
     </modules>
 
     <properties>
