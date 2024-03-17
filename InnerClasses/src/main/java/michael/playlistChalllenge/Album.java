@@ -11,7 +11,7 @@ public class Album {
         this.name = name;
         this.artist = artist;
     }
-
+    
     class SongList {
         private ArrayList<Song> songs;
 
@@ -37,6 +37,7 @@ public class Album {
             }
             return null;
         }
+
 
         /**
          * addToPlayList(), has two parameters of type int (track number of song in album)
@@ -72,4 +73,5 @@ public class Album {
             return false;
         }
     }
+
 }
