@@ -15,6 +15,7 @@
         <module>Abstraction</module>
         <module>Networking</module>
         <module>InnerClasses</module>
+        <module>InputOutput</module>
     </modules>
 
     <properties>
