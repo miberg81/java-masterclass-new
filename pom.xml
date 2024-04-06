@@ -16,6 +16,8 @@
         <module>Networking</module>
         <module>InnerClasses</module>
         <module>InputOutput</module>
+        <module>Streams</module>
+        <module>Packages</module>
     </modules>
 
     <properties>
