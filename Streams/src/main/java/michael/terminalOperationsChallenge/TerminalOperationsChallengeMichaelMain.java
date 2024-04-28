@@ -1,9 +1,12 @@
-package studentsChallenge.michael;
+package michael.terminalOperationsChallenge;
+
+import michael.Course;
+import michael.Student;
 
 import java.util.List;
 import java.util.stream.Stream;
 
-public class MichaelMain {
+public class TerminalOperationsChallengeMichaelMain {
 
     public static void main(String[] args) {
 

@@ -1,4 +1,4 @@
-package studentsChallenge.michael;
+package lpa.StreamingStudents.model;
 
 public record Course(String courseCode, String title, int lectureCount) {
 

@@ -9,7 +9,7 @@ import java.util.stream.Stream;
  * Example prints out BINGO without stream
  * then does the same with streams
  */
-public class Main {
+public class BingoMain {
 
     public static void main(String[] args) {
 
@@ -95,24 +95,24 @@ public class Main {
 
         System.out.println();
         IntStream.iterate(1, n -> n + 1)
-                .filter(Main::isPrime)
+                .filter(BingoMain::isPrime)
                 .limit(20)
                 .forEach(s -> System.out.print(s + " "));
 
         System.out.println();
         IntStream.iterate(1, n -> n + 1)
                 .limit(100)
-                .filter(Main::isPrime)
+                .filter(BingoMain::isPrime)
                 .forEach(s -> System.out.print(s + " "));
 
         System.out.println();
         IntStream.iterate(1, n -> n <= 100, n -> n + 1)
-                .filter(Main::isPrime)
+                .filter(BingoMain::isPrime)
                 .forEach(s -> System.out.print(s + " "));
 
         System.out.println();
         IntStream.rangeClosed(1, 100)
-                .filter(Main::isPrime)
+                .filter(BingoMain::isPrime)
                 .forEach(s -> System.out.print(s + " "));
     }
 

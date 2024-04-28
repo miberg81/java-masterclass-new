@@ -1,4 +1,4 @@
-package studentsChallenge.michael;
+package lpa.StreamingStudents.model;
 
 import java.time.LocalDate;
 import java.time.Period;
