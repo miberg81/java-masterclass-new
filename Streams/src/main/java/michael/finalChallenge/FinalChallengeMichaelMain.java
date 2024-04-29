@@ -4,11 +4,9 @@ import michael.CourseEngagement;
 import michael.Student;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.counting;
-import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.*;
 //import static java.util.stream.Collectors.groupingBy;
 
 /*
@@ -32,22 +30,78 @@ public class FinalChallengeMichaelMain {
     public static void main(String[] args) {
         final List<Student> students = Stream
                 .generate(() -> Student.getRandomStudent())
-                .limit(1000)
+                .limit(10000)
                 .toList();
 
         //How many of the students are enrolled in each class?
         var enrolledInEachClass = students.stream()
                 .map(Student::getEngagementMap)
                 .flatMap(map->map.values().stream())
-                .collect(groupingBy(CourseEngagement::getCourseCode, counting()));
+                .collect(
+                        groupingBy(
+                                CourseEngagement::getCourseCode,
+                                counting()
+                        )
+                );
 
         enrolledInEachClass.forEach(
                 (key, value) -> System.out.println(key + " : " + value));
 
-        var studentsPerClassCount = students.stream()
-                .map(Student::getEngagementMap)
-                .flatMap(map->map.values().stream())
-                //.collect(groupingBy(CourseEngagement::getCo))
+        // student amount taking 1,2,3 classes...
+        var classCounts = students.stream()
+                .collect(
+                        groupingBy(
+                                s -> s.getEngagementMap().size(),
+                                counting()
+                        )
+                );
+        System.out.println("classCounts " + classCounts);
+
+
+        System.out.println("-----------averagePercentComplete-----");
+        var averagePercentComplete = students.stream()
+                .flatMap(s -> s.getEngagementMap().values().stream())
+                .collect(
+                        groupingBy(
+                                CourseEngagement::getCourseCode,
+                                //averagingDouble(CourseEngagement::getPercentComplete))
+                                summarizingDouble(CourseEngagement::getPercentComplete))
+
+                );
+
+        System.out.println("averagePercentComplete " + averagePercentComplete);
+
+        System.out.println("---------yearActivityCountPerEachCourse---------- ");
+        var activityCountsByYear = students.stream()
+                .flatMap(s -> s.getEngagementMap().values().stream())
+                .collect(
+                        groupingBy(CourseEngagement::getCourseCode, // key!
+                                groupingBy( // value is a nested map of activity count by year!
+                                        CourseEngagement::getLastActivityYear,
+                                        counting()
+                                ))
+                );
+        activityCountsByYear.forEach((key, value) -> {
+            System.out.println(key);
+            System.out.println("\t" + value);
+        });
+
+        System.out.println("-------enrollementsByCourseForEachYear---------");
+
+        var enrollementsByCourse = students.stream()
+                .flatMap(s -> s.getEngagementMap().values().stream())
+                .collect(
+                        groupingBy(CourseEngagement::getEnrollmentYear, // key!
+                                groupingBy( // value is a nested map of activity count by year!
+                                        CourseEngagement::getCourseCode,
+                                        counting()
+                                ))
+                );
+        enrollementsByCourse.forEach((key, value) -> {
+            System.out.println(key);
+            System.out.println("\t" + value);
+        });
+
 
     }
 }

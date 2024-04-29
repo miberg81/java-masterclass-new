@@ -53,6 +53,7 @@ public class MainMapping {
 
         // get a map by country and within each country a map by gender
         // Multilevel map type Map<String, Map<String,List<Student>
+        System.out.println("-------MULTILEVEL MAP----");
         var multiLevel = students.stream()
                 .collect(groupingBy(Student::getCountryCode,
                         groupingBy(Student::getGender)));
