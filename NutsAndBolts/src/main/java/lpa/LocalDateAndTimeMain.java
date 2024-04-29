@@ -6,7 +6,7 @@ import java.time.format.FormatStyle;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
 
-public class LocalDateMain {
+public class LocalDateAndTimeMain {
 
     public static void main(String[] args) {
 
