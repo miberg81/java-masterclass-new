@@ -18,6 +18,7 @@
         <module>InputOutput</module>
         <module>Streams</module>
         <module>Packages</module>
+        <module>NutsAndBolts</module>
     </modules>
 
     <properties>
