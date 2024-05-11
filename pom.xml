@@ -19,6 +19,7 @@
         <module>Streams</module>
         <module>Packages</module>
         <module>NutsAndBolts</module>
+        <module>ExpressionsStatements</module>
     </modules>
 
     <properties>
