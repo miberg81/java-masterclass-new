@@ -6,7 +6,7 @@ import michael.Student;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class TerminalOperationsChallengeMichaelMain {
+public class TerminalOperationsChallenge1Main {
 
     public static void main(String[] args) {
 

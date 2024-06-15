@@ -20,6 +20,7 @@
         <module>Packages</module>
         <module>NutsAndBolts</module>
         <module>ExpressionsStatements</module>
+        <module>Collections</module>
     </modules>
 
     <properties>

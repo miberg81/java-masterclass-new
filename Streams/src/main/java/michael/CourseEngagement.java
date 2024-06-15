@@ -53,7 +53,7 @@ public class CourseEngagement {
         return (int) months;
     }
 
-    void watchLecture(int lectureNumber, LocalDate currentDate) {
+    public void watchLecture(int lectureNumber, LocalDate currentDate) {
 
         lastLecture = Math.max(lectureNumber, lastLecture);
         lastActivityDate = currentDate;
